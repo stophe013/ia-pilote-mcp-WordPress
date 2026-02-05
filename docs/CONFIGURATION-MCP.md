@@ -114,7 +114,7 @@ Ce bridge tourne **sur votre ordinateur**, pas sur WordPress. Il appelle ensuite
 Vous pouvez l'installer et le lancer directement via `npx` (recommandé) :
 
 ```bash
-npx -y github:stophe013/ia-pilote-mcp-bridge
+npx -y github:stophe013/ia-pilote-mcp-WordPress#mcp-bridge
 ```
 
 Le bridge utilise ces variables d'environnement (via votre client MCP ou un fichier `.env`) :
@@ -126,7 +126,7 @@ Le bridge utilise ces variables d'environnement (via votre client MCP ou un fich
 ### Test
 
 ```bash
-npx -y github:stophe013/ia-pilote-mcp-bridge
+npx -y github:stophe013/ia-pilote-mcp-WordPress#mcp-bridge
 ```
 
 ### Exemple Claude Desktop (bridge local)
@@ -136,7 +136,7 @@ npx -y github:stophe013/ia-pilote-mcp-bridge
   "mcpServers": {
     "ia-pilote-bridge": {
       "command": "npx",
-      "args": ["-y", "github:stophe013/ia-pilote-mcp-bridge"],
+      "args": ["-y", "github:stophe013/ia-pilote-mcp-WordPress#mcp-bridge"],
       "env": {
         "WP_URL": "https://example.com",
         "WP_USERNAME": "USERNAME",

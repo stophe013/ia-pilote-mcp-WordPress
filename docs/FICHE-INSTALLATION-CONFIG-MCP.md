@@ -42,7 +42,7 @@ Config client (recommandé: `npx`) :
   "mcpServers": {
     "ia-pilote-bridge": {
       "command": "npx",
-      "args": ["-y", "github:stophe013/ia-pilote-mcp-bridge"],
+      "args": ["-y", "github:stophe013/ia-pilote-mcp-WordPress#mcp-bridge"],
       "env": {
         "WP_URL": "https://example.com",
         "WP_USERNAME": "USERNAME",
@@ -56,8 +56,9 @@ Config client (recommandé: `npx`) :
 Alternative (si vous voulez cloner) :
 
 ```bash
-git clone https://github.com/stophe013/ia-pilote-mcp-bridge.git
-cd ia-pilote-mcp-bridge
+git clone https://github.com/stophe013/ia-pilote-mcp-WordPress.git
+cd ia-pilote-mcp-WordPress
+git checkout mcp-bridge
 npm ci
 npm run build
 node build/index.js

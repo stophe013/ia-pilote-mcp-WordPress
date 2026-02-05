@@ -65,9 +65,9 @@ Generer le Base64 :
 
 ## MCP Bridge (optionnel)
 
-Un bridge Node.js (serveur MCP local en stdio) est disponible dans un depot separe :
+Un bridge Node.js (serveur MCP local en stdio) est disponible dans ce meme depot sur la branche `mcp-bridge` :
 
-- `github:stophe013/ia-pilote-mcp-bridge`
+- `github:stophe013/ia-pilote-mcp-WordPress#mcp-bridge`
 
 Utile si votre client MCP refuse les noms d'outils avec `/` (le bridge convertit `/` <-> `__`) ou impose un serveur local stdio.
 
@@ -78,7 +78,7 @@ Exemple (Claude Desktop / Cursor) :
   "mcpServers": {
     "ia-pilote-bridge": {
       "command": "npx",
-      "args": ["-y", "github:stophe013/ia-pilote-mcp-bridge"],
+      "args": ["-y", "github:stophe013/ia-pilote-mcp-WordPress#mcp-bridge"],
       "env": {
         "WP_URL": "https://example.com",
         "WP_USERNAME": "USERNAME",
