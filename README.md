@@ -63,3 +63,7 @@ Generer le Base64 :
 - Guide complet : `docs/CONFIGURATION-MCP.md`
 - Fiche rapide : `docs/FICHE-INSTALLATION-CONFIG-MCP.md`
 
+## MCP Bridge (optionnel)
+
+Le repo inclut un bridge Node.js dans `mcp/` pour lancer un serveur MCP local en stdio.
+Utile si votre client MCP refuse les noms d'outils avec `/` (le bridge convertit `/` <-> `__`).

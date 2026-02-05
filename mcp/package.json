@@ -1,0 +1,23 @@
+{
+    "name": "ia-pilote-mcp-bridge",
+    "version": "1.0.0",
+    "description": "Bridge MCP pour connecter IA Pilote WordPress Plugin à un client MCP",
+    "type": "module",
+    "main": "build/index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node build/index.js",
+        "start:mcp": "node build/index.js",
+        "test:connection": "node test_connection.js",
+        "test:client": "node test_client.js"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^0.6.0",
+        "axios": "^1.6.0",
+        "dotenv": "^16.3.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "typescript": "^5.2.0"
+    }
+}
