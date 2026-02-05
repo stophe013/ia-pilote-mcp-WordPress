@@ -31,7 +31,38 @@ npx -v
 - MCP Tools list: `https://example.com/wp-json/adjm-mcp/v1/mcp/tools/list`
 - MCP Tools call: `https://example.com/wp-json/adjm-mcp/v1/mcp/tools/call`
 
-## 3) Claude Desktop (recommandé : mcp-remote)
+## 3) Serveur MCP local (bridge Node.js) - optionnel
+
+Utile si votre client MCP exige un serveur local en stdio ou n'accepte pas les noms d'outils avec `/`.
+
+```bash
+cd mcp
+npm ci
+npm run build
+copy .env.example .env   # Windows (ou `cp .env.example .env` sur Mac/Linux)
+```
+
+Editez `mcp/.env` puis testez :
+
+```bash
+cd mcp
+npm run test:connection
+```
+
+Config client (chemin absolu) :
+
+```json
+{
+  "mcpServers": {
+    "ia-pilote-bridge": {
+      "command": "node",
+      "args": ["C:/chemin/absolu/vers/le/repo/mcp/build/index.js"]
+    }
+  }
+}
+```
+
+## 4) Claude Desktop (recommandé : mcp-remote)
 
 ### Fichier
 

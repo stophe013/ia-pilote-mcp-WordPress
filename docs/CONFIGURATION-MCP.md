@@ -95,6 +95,65 @@ echo -n "admin:xxxx xxxx xxxx xxxx" | base64
 
 ---
 
+## 🧩 Serveur MCP local (bridge Node.js)
+
+La configuration ci-dessus (avec `@anthropic-ai/mcp-remote`) suffit dans la plupart des cas.
+
+Utilisez ce **bridge local** si :
+
+- votre client MCP exige un serveur **stdio** local (commande `node ...`)
+- votre client refuse les noms d'outils contenant `/` (le bridge convertit `/` en `__`)
+
+Ce bridge tourne **sur votre ordinateur**, pas sur WordPress. Il appelle ensuite votre WordPress via :
+
+- `GET /wp-json/adjm-mcp/v1/mcp/tools/list`
+- `POST /wp-json/adjm-mcp/v1/mcp/tools/call`
+
+### Installation
+
+Dans le dossier `mcp/` (fourni avec le projet) :
+
+```bash
+cd mcp
+npm ci
+npm run build
+```
+
+Créez ensuite votre fichier `mcp/.env` :
+
+1. Copier `mcp/.env.example` vers `mcp/.env`
+2. Modifier `mcp/.env` :
+   - `WP_URL=https://example.com`
+   - `WP_USERNAME=...`
+   - `WP_APP_PASSWORD="xxxx xxxx xxxx xxxx"` (gardez les guillemets si le mot de passe contient des espaces)
+
+### Test
+
+```bash
+cd mcp
+npm run test:connection
+```
+
+### Exemple Claude Desktop (bridge local)
+
+```json
+{
+  "mcpServers": {
+    "ia-pilote-bridge": {
+      "command": "node",
+      "args": ["C:/chemin/absolu/vers/le/repo/mcp/build/index.js"]
+    }
+  }
+}
+```
+
+Notes :
+
+- utilisez un **chemin absolu** vers `mcp/build/index.js` (les clients ne fixent pas toujours le répertoire courant)
+- les tools exposés par le bridge seront du type `adjm__list-pages` (au lieu de `adjm/list-pages`)
+
+---
+
 ## 🚀 Antigravity (Google)
 
 ### Fichier de configuration

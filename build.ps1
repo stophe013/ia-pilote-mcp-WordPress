@@ -64,7 +64,18 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 $zip = [System.IO.Compression.ZipFile]::Open($ZipPath, 'Create')
 
 # Fichiers a exclure
-$excludePatterns = @('\.ps1$', '\.bat$', '\.git', '\.DS_Store', 'Thumbs\.db')
+# Note: ce build doit packager uniquement le plugin WordPress (pas le bridge Node.js dans mcp/)
+$excludePatterns = @(
+    '\.ps1$',
+    '\.bat$',
+    '\.git',
+    '\.DS_Store',
+    'Thumbs\.db',
+    '([\\/])mcp([\\/])',
+    '([\\/])\.gitignore$',
+    '([\\/])README\.md$',
+    '([\\/])ROADMAP\.md$'
+)
 
 Get-ChildItem $SourceDir -Recurse -File | Where-Object {
     $path = $_.FullName
