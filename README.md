@@ -4,22 +4,22 @@ Ce serveur MCP permet de connecter Agravity (Cursor) ou Claude Desktop à votre 
 
 ## 🛠️ Installation
 
-1.  **Prérequis** : Node.js installé.
+1.  **Prérequis** : Node.js vérifié.
 2.  **Installation** :
     ```bash
-    cd MCP
+    # Dans le dossier du projet
     npm install
     npm run build
     ```
 
 ## ⚙️ Configuration
 
-1.  Ouvrez le fichier `.env` dans le dossier `MCP`.
+1.  Renommez le fichier `.env.example` en `.env`.
 2.  Remplissez vos informations :
-    *   `WP_URL` : L'URL de votre site (ex: `https://adjm-evenementiel.fr`)
+    *   `WP_URL` : L'URL de votre site (ex: `https://votre-site.fr`)
     *   `WP_USERNAME` : Votre identifiant administrateur WordPress.
     *   `WP_APP_PASSWORD` : Votre mot de passe d'application.
-        *   *Pour le créer : Admin WP > Utilisateurs > Profil > Mots de passe d'application.*
+    *   *Note : Vous pouvez aussi passer ces variables directement dans la configuration JSON (voir ci-dessous).*
 
 ## 🚀 Utilisation dans Cursor / Claude Desktop
 
@@ -31,7 +31,7 @@ Ajoutez cette configuration à votre fichier `mcp_config.json` (ou paramètres C
     "ia-pilote-bridge": {
       "command": "node",
       "args": [
-        "D:/Projet/06_DEV/wordpress-plugins/MCP/build/index.js"
+        "/CHEMIN/ABSOLU/VERS/MCP-WordPress-IA-Pilote/build/index.js"
       ],
       "env": {
         "WP_URL": "https://votre-site.fr",
